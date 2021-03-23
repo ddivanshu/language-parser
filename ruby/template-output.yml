@@ -1,0 +1,16 @@
+
+on:
+  push:
+    branches: ww.w.w.w
+  pull_request:
+    branches: [ $default-branch ]
+  x: 
+      httpApplicationRoutingDomain is false
+ 
+  y: 
+  z: 
+      ReuseAcr is true
+  ardr: p1
+  ardr: p2
+  ardr: p3
+  ardr: p4

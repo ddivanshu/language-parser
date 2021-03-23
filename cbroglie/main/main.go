@@ -18,8 +18,8 @@ func main() {
 	if err != nil {
 		fmt.Print(err)
 	}
-	template, err := mustache.Render(string(content), ctx)
-	print(err.Error())
+	fileContent := string(content)
+	template, err := mustache.Render(fileContent, ctx)
 	f, err := os.Create("testOutput.yml")
 	if err != nil {
 		fmt.Print(err)
@@ -31,18 +31,11 @@ func initializeContext() map[string]interface{} {
 
 	return map[string]interface{}{
 		"variables": map[string]string{"registryUrl": "www.testRegistryUrl.com", "containerRegistryName": "TestContainerRegistery"},
-		"inputs": map[string]interface{}{"httpApplicationRoutingDomain": true,
-			"reuseACR": "false", "clusterName": "testCluster", "existingContainerRegistryId": 1024, "containerRegistryName": "Test-Container-Registery-Name"},
-		"assets": map[string]string{"deploymentFile": "deploymentFile", "serviceFile": "serviceFile"},
-		"env":    map[string]string{"REGION_ID": "divanshu_region"},
-		"toLower": func() string {
-
-			return "function called"
-
-		},
-		"check": func() string {
-			return "blablabla"
-		},
+		"inputs": map[string]interface{}{"httpApplicationRoutingDomain": false,
+			"reuseACR": "true", "clusterName": "testCluster", "existingContainerRegistryId": 1024, "containerRegistryName": "Test-Container-Registery-Name"},
+		"assets":   map[string]string{"deploymentFile": "deploymentFile", "serviceFile": "serviceFile"},
+		"env":      map[string]string{"REGION_ID": "divanshu_region"},
+		"projects": []string{"p1", "p2", "p3", "p4"},
 	}
 }
 func registerHelpers() template.FuncMap {

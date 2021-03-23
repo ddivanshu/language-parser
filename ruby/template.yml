@@ -1,9 +1,17 @@
-Hello {{name}}
-You have just won {{value}} dollars!
-{{#in_ca}}
-4 is greater than 2
-{{/in_ca}}
-{{^in_ca }}
-false case: 2 is greater than 4
-{{/in_ca}}
-{{#gravatar}} {{name}} "F" {{/gravatar}}
+
+on:
+  push:
+    branches: {{ registryUrl }}
+  pull_request:
+    branches: [ $default-branch ]
+  x: {{^httpApplicationRoutingDomain}}
+      httpApplicationRoutingDomain is false
+      {{/httpApplicationRoutingDomain}} 
+  y: {{#httpApplicationRoutingDomain}}
+      This should not be produced {{/httpApplicationRoutingDomain}}
+  z: {{#reuseACR}}
+      ReuseAcr is true
+     {{/reuseACR}}
+  {{#projects}}
+  ardr: {{.}}
+  {{/projects}}

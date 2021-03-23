@@ -1,27 +1,26 @@
 require "mustache"
 class Simple < Mustache
-  def name
-    "Chris"
-  end
 
-  def value
-    10_000
-  end
+  $inputs={"httpApplicationRoutingDomain"=>false , "reuseACR"=> true}
 
-  def taxed_value
-    value * 0.6
-  end
+    def registryUrl
+      return "ww.w.w.w"
+    end
 
-  def in_ca
+  def reuseACR
     true
   end
 
-  def gravatar(one, render)
-    return "llll"
+  def httpApplicationRoutingDomain
+    return false
+  end
+  def projects
+    return ["p1","p2","p3","p4"]
   end
 end
 
 Simple.template_file ="template.yml"
+
 file = File.open("template-output.yml","w")
 file.write(Simple.render)
 

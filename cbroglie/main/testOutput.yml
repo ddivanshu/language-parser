@@ -1,0 +1,16 @@
+
+on:
+  push:
+    branches: www.testRegistryUrl.com
+  pull_request:
+    branches: [ $default-branch ]
+  x: 
+      httpApplicationRoutingDomain is false
+  y: 
+  z: true
+      ReuseAcr is true
+
+arr: p1
+arr: p2
+arr: p3
+arr: p4

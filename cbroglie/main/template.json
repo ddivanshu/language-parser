@@ -1,0 +1,13 @@
+
+{
+    "branches": "{{ variables.registryUrl }}",
+
+  "x": "{{^inputs.httpApplicationRoutingDomain}}
+      httpApplicationRoutingDomain is false
+      {{/inputs.httpApplicationRoutingDomain}}",
+  "y": "{{#inputs.httpApplicationRoutingDomain}}
+      This should not be produced {{/inputs.httpApplicationRoutingDomain}}",
+  "z": "{{#inputs.reuseACR}}
+      ReuseAcr is true
+     {{/inputs.reuseACR}}"
+}

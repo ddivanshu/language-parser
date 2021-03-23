@@ -1,2 +1,19 @@
-Hello {{ variables.registryUrl }}
-{{#check}}
+
+on:
+  push:
+    branches: {{ variables.registryUrl }}
+  pull_request:
+    branches: [ $default-branch ]
+  x: {{^inputs.httpApplicationRoutingDomain}}
+      httpApplicationRoutingDomain is false
+      {{/inputs.httpApplicationRoutingDomain}} 
+  y: {{#inputs.httpApplicationRoutingDomain}}
+      This should not be produced {{/inputs.httpApplicationRoutingDomain}}
+      {{#inputs.reuseACR}}
+  z: {{inputs.reuseACR}}
+      ReuseAcr is true
+     {{/inputs.reuseACR}}
+
+{{#projects}}
+arr: {{.}}
+{{/projects}}
