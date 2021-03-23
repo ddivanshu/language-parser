@@ -2,9 +2,9 @@ require "mustache"
 class Simple < Mustache
 
 
-    def registryUrl
+  def registryUrl
       return "ww.w.w.w"
-    end
+  end
 
   def reuseACR
     true
