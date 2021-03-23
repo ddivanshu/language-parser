@@ -1,7 +1,6 @@
 require "mustache"
 class Simple < Mustache
 
-  $inputs={"httpApplicationRoutingDomain"=>false , "reuseACR"=> true}
 
     def registryUrl
       return "ww.w.w.w"
