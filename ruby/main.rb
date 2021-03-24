@@ -1,7 +1,6 @@
 require "mustache"
 class Simple < Mustache
 
-
   def registryUrl
       return "ww.w.w.w"
   end

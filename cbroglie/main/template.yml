@@ -12,3 +12,4 @@ on:
   z: $[[#inputs.reuseACR]]
       ReuseAcr is true
      $[[/inputs.reuseACR]]
+  a: {{should be exactly same}}
