@@ -1,0 +1,5 @@
+context.company
+repo.docker.path
+beginsWith('ab',repo.package,'1','dd','ff')
+toLower('s')
+toLower(beginsWith('ab',repo.package,'1','dd','ff'))
