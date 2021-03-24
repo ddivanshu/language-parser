@@ -1,4 +1,3 @@
-
 on:
   push:
     branches: www.testRegistryUrl.com
@@ -7,10 +6,5 @@ on:
   x: 
       httpApplicationRoutingDomain is false
   y: 
-  z: true
+  z: 
       ReuseAcr is true
-
-arr: p1
-arr: p2
-arr: p3
-arr: p4

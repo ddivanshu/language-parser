@@ -19,7 +19,10 @@ func main() {
 		fmt.Print(err)
 	}
 	fileContent := string(content)
-	template, err := mustache.Render(fileContent, ctx)
+	template, err := mustache.Render("{{=$[[ ]]=}}"+fileContent, ctx)
+	if err != nil {
+		fmt.Print(err)
+	}
 	f, err := os.Create("testOutput.yml")
 	if err != nil {
 		fmt.Print(err)
