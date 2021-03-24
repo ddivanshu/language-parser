@@ -55,6 +55,9 @@ func main() {
 	}
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
+
+	fOutput, err := os.Create("testOutput.yml")
+
 	for scanner.Scan() {
 		//rendering logic
 		compiledTemplate, issue := env.Compile(scanner.Text())
@@ -66,7 +69,7 @@ func main() {
 			log.Fatal(err.Error())
 		}
 		out, _, _ := prg.Eval(contextMap)
-		fmt.Println(out)
+		fOutput.WriteString(fmt.Sprintf("%v\n", out))
 	}
 }
 
